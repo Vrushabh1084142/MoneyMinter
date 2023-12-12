@@ -4,30 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excel Viewer</title>
-    <style>
-        /* Set the size of the container */
-        .excel-container {
-            width: 100%;
-            height: 600px; /* Adjust the height as needed */
-            overflow: hidden;
-        }
-
-        /* Adjust the position and size of the displayed area */
-        .excel-content {
-            width: 120%; /* Adjust the width as needed */
-            height: 120%; /* Adjust the height as needed */
-            margin-left: -10%; /* Adjust the margin as needed */
-            margin-top: -10%; /* Adjust the margin as needed */
-        }
-    </style>
 </head>
 <body>
-    <h1>MoneyMinter</h1>
+    <h1>MONEYMINTER</h1>
 
-    <div class="excel-container">
-        <!-- Replace 'YOUR_EMBEDDED_EXCEL_LINK' with the modified link from OneDrive -->
-        <iframe class="excel-content" src="https://1drv.ms/x/s!Ao2gbDHxBYiQpiU9rvZR9P_FQavC?e=ZVwcSH" frameborder="0" allowfullscreen="true"></iframe>
-    </div>
+    <div id="excel-container"></div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.5/xlsx.full.min.js"></script>
+
+    <script>
+        // Replace 'your-excel-file.xlsx' with the path to your Excel file
+        var excelFile = "C:\Users\Dell\OneDrive\Documents\Desktop\Vrushabh\OC COPY.xlsm";
+
+        // Function to handle file loading
+        function handleFile() {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var data = e.target.result;
+                var workbook = XLSM.read(data, { type: 'binary' });
+                // Assuming the first sheet is the one you want to display
+                var sheetName = workbook.SheetNames[0];
+                var excelData = XLSM.utils.sheet_to_html(workbook.Sheets[sheetName]);
+                document.getElementById('excel-container').innerHTML = excelData;
+            };
+
+            // Read the predefined Excel file
+            fetch(excelFile)
+                .then(response => response.blob())
+                .then(blob => reader.readAsBinaryString(blob));
+        }
+
+        // Call the function when the page loads
+        handleFile();
+    </script>
 </body>
 </html>
+
 
