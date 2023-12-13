@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MoneyMinter</title>
     <style>
-        /* Set the size of the container */
+        /* Set the size of the containers */
         .chart-container,
         .excel-container {
             width: 100%;
@@ -16,10 +16,13 @@
         /* Adjust the position and size of the displayed area */
         .chart-content,
         .excel-content {
-            width: 120%; /* Adjust the width as needed */
-            height: 120%; /* Adjust the height as needed */
-            margin-left: -10%; /* Adjust the margin as needed */
-            margin-top: -10%; /* Adjust the margin as needed */
+            width: 100%; /* Both take full width */
+            height: 100%; /* Both take full height */
+        }
+
+        .excel-content {
+            /* You can adjust the margin if necessary, but for now, set it to 0 */
+            margin: 0;
         }
     </style>
 </head>
@@ -37,15 +40,11 @@
     </div>
 
     <script>
-        // Refresh every 2 minutes
+        // Refresh only the Excel iframe every 2 minutes
         setInterval(function() {
             // Reload the Excel iframe
             var excelIframe = document.querySelector('.excel-content');
             excelIframe.src = excelIframe.src;
-
-            // Reload the Chart iframe
-            var chartIframe = document.querySelector('.chart-content');
-            chartIframe.src = chartIframe.src;
         }, 120000); // 2 minutes in milliseconds
     </script>
 </body>
