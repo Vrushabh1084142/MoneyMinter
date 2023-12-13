@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excel Viewer</title>
+    <title>MoneyMinter</title>
     <style>
         /* Set the size of the container */
+        .chart-container,
         .excel-container {
             width: 100%;
             height: 600px; /* Adjust the height as needed */
@@ -13,6 +14,7 @@
         }
 
         /* Adjust the position and size of the displayed area */
+        .chart-content,
         .excel-content {
             width: 120%; /* Adjust the width as needed */
             height: 120%; /* Adjust the height as needed */
@@ -24,18 +26,27 @@
 <body>
     <h1>MoneyMinter</h1>
 
+    <div class="chart-container">
+        <!-- Replace 'YOUR_STOCK_CHART_LINK' with the link for the stock chart -->
+        <iframe class="chart-content" src="https://www.moneycontrol.com/mc/indianindices/chart?indice_id=9&classic=true" frameborder="0" allowfullscreen="true"></iframe>
+    </div>
+
     <div class="excel-container">
         <!-- Replace 'YOUR_EMBEDDED_EXCEL_LINK' with the modified link from OneDrive -->
         <iframe class="excel-content" src="https://1drv.ms/x/s!Ao2gbDHxBYiQpiU9rvZR9P_FQavC?e=ZVwcSH" frameborder="0" allowfullscreen="true"></iframe>
     </div>
+
     <script>
         // Refresh every 2 minutes
         setInterval(function() {
-            // Reload the iframe or refresh the content
-            var iframe = document.querySelector('iframe');
-            iframe.src = iframe.src;
+            // Reload the Excel iframe
+            var excelIframe = document.querySelector('.excel-content');
+            excelIframe.src = excelIframe.src;
+
+            // Reload the Chart iframe
+            var chartIframe = document.querySelector('.chart-content');
+            chartIframe.src = chartIframe.src;
         }, 120000); // 2 minutes in milliseconds
-    </script>  
+    </script>
 </body>
 </html>
-
