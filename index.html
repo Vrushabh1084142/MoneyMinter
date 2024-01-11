@@ -5,47 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MoneyMinter07</title>
     <style>
-        /* Set the size of the containers */
-        .chart-container,
+        /* Set the size of the container */
         .excel-container {
             width: 100%;
-            height: 400px; /* Adjust the height as needed */
+            height: 600px; /* Adjust the height as needed */
             overflow: hidden;
         }
 
         /* Adjust the position and size of the displayed area */
-        .chart-content,
         .excel-content {
-            width: 100%; /* Both take full width */
-            height: 100%; /* Both take full height */
-        }
-
-        .excel-content {
-            /* You can adjust the margin if necessary, but for now, set it to 0 */
-            margin: 0;
+            width: 100%; /* Take full width */
+            height: 100%; /* Take full height */
         }
     </style>
 </head>
 <body>
-    <h1>MoneyMinter0</h1>
-
-    <div class="chart-container">
-        <!-- Replace 'YOUR_STOCK_CHART_LINK' with the link for the stock chart -->
-        <iframe height="480" width="650" src="https://ssltvc.investing.com/?pair_ID=160&height=480&width=650&interval=300&plotStyle=area&domain_ID=56&lang_ID=56&timezone_ID=20"></iframe>
-    </div>
+    <h1>MoneyMinter07</h1>
 
     <div class="excel-container">
-        <!-- Replace 'YOUR_EMBEDDED_EXCEL_LINK' with the modified link from OneDrive -->
-        <iframe class="excel-content" src="https://1drv.ms/x/s!Ao2gbDHxBYiQrmr0ZVnI3K1rQiah?e=lhQe4f" frameborder="0" allowfullscreen="true"></iframe>
+        <!-- Replace 'YOUR_EMBEDDED_EXCEL_LINK' with the shared link from OneDrive -->
+        <iframe class="excel-content" src="https://1drv.ms/x/s!Ao2gbDHxBYiQrmr0ZVnI3K1rQiah?e=lhQe4f"></iframe>
     </div>
-
-    <script>
-        // Refresh only the Excel iframe every 2 minutes
-        setInterval(function() {
-            // Reload the Excel iframe
-            var excelIframe = document.querySelector('.excel-content');
-            excelIframe.src = excelIframe.src;
-        }, 120000); // 2 minutes in milliseconds
-    </script>
 </body>
 </html>
